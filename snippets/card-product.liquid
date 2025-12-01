@@ -145,6 +145,15 @@
       </div>
       <div class="card__content">
         <div class="card__information">
+          <variant-swatches style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; position: relative;z-index: 99;">
+            {%  for variant in card_product.variants  %}
+              <div class="variant-image" style="width: 60px;">
+                <img style="width: 100%; height: 100%;"
+                  src="{{ variant.featured_image | image_url: width: 600 }}"
+                  alt="{{ variant.featured_image.alt | escape }}" />
+              </div>
+            {% endfor %}
+          </variant-swatches>
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
             {% if card_product.featured_media or settings.card_style == 'card' %}
