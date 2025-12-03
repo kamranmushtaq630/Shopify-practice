@@ -1,0 +1,15 @@
+{%  assign badges  = product.metafields.custom.badges.value %}
+
+<div class="custom-badges">
+  {% for badge in badges %}
+    {% assign badge_parts = badge | split: '|' %}
+    {% assign badge_text = badge_parts[0] | strip %}
+    {% assign background_color = badge_parts[1] | strip %}
+    {% assign text_color = badge_parts[2] | strip %}
+
+    <span class="custom-badge" 
+          style="background-color: {{ background_color }}; color: {{ text_color }};">
+      {{ badge_text }}
+    </span>
+  {% endfor %}
+</div>

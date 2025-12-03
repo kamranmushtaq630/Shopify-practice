@@ -41,6 +41,7 @@
     endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
+    {% render "product-badges" product: card_products %}
     <div
       class="
         card card--{{ settings.card_style }}
